@@ -36,6 +36,6 @@ Run `firebase init`. Turn on `Database`, `Firestore`, and `Hosting` and anything
 ![screen1](./screens/screen1.png)
 
 
-When it gets to the questions about hosting set the public-root to `dev` and turn on SPA:
+When it gets to the questions about hosting set the public-root to `dist` and turn on SPA:
 
 ![screen5](./screens/screen5.png)

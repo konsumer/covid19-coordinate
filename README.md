@@ -2,6 +2,10 @@
 
 This is a quick-start for firebase with react, rsuite, and parcel.
 
+* [Project Console](https://console.firebase.google.com/project/rsuite-starter/overview)
+* [Hosting URL](https://rsuite-starter.firebaseapp.com)
+
+
 ## development
 
 ```sh

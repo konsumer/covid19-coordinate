@@ -3,7 +3,7 @@ import { useUser, useAuth } from 'reactfire'
 import { Nav, Navbar, Modal, Button, Divider } from 'rsuite'
 import { A } from 'hookrouter'
 
-import logo from './images/logo.png'
+import logo from './images/logo.svg'
 import ButtonLoginGithub from './ButtonLoginGithub'
 import FormLogin from './FormLogin'
 

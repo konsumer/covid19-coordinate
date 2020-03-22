@@ -1,6 +1,6 @@
 # Firebase Rsuite Starter
 
-This is a quick-start for firebase with react, rsuite, and parcel.
+This is a quick-start for firebase with [react](https://reactjs.org/), [reactfire](https://github.com/FirebaseExtended/reactfire), [rsuite](https://rsuitejs.com/en/), and [parcel](https://parceljs.org/).
 
 * [Project Console](https://console.firebase.google.com/project/rsuite-starter/overview)
 * [Hosting URL](https://rsuite-starter.firebaseapp.com)

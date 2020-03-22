@@ -4,15 +4,15 @@ import { useRoutes } from 'hookrouter'
 import { Content, Container } from 'rsuite'
 
 // TODO: pull this, from server?
-import firebaseConfig from '../firebase.json'
+import firebaseConfig from '../config.json'
 import Header from './Header'
 import PageHome from './pages/PageHome'
 import PageNotFound from './pages/PageNotFound'
-import PageVolunteers from './pages/PageVolunteers'
+import PageAbout from './pages/PageAbout'
 
 const routes = {
   '/': PageHome,
-  '/volunteers': PageVolunteers
+  '/about': PageAbout
 }
 
 export default () => {

@@ -35,13 +35,13 @@ const Header = () => {
     <Navbar appearance='inverse' componentClass='header'>
       <Navbar.Header style={{ padding: 12, paddingLeft: 20, fontSize: 20 }}>
         <A href='/'>
-          <img src={logo} alt='' height={30} /> Covid-19 Cordinate
+          <img src={logo} alt='' height={30} /> Firebase Starter
         </A>
       </Navbar.Header>
 
       <Navbar.Body>
         <Nav pullRight>
-          <Nav.Item componentClass={A} href='/volunteers'>Volunteers</Nav.Item>
+          <Nav.Item componentClass={A} href='/about'>About</Nav.Item>
           {!!user && (<Nav.Item onClick={() => auth.signOut()}>Logout</Nav.Item>)}
           {!user && (<Nav.Item onClick={() => setOpen(true)}>Login</Nav.Item>)}
         </Nav>

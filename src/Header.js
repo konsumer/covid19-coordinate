@@ -1,8 +1,10 @@
 import React, { useState, Suspense } from 'react'
 import { useUser, useAuth } from 'reactfire'
-import { Nav, Navbar, Modal, Button } from 'rsuite'
+import { Nav, Navbar, Modal, Button, Divider } from 'rsuite'
 import { A } from 'hookrouter'
 
+import logo from './images/logo.png'
+import ButtonLoginGithub from './ButtonLoginGithub'
 import FormLogin from './FormLogin'
 
 const Header = () => {
@@ -24,25 +26,37 @@ const Header = () => {
     }
   }
 
-  console.log(auth)
-
-  const onGithubLogin = async () => {
-    const provider = new auth.GithubAuthProvider()
-    const { user, token } = auth.signInWithPopup(provider)
-    console.log({ user, token })
+  const onGithubError = e => {
+    console.error(e)
+    setErrors({ ...errors, ALL: e.message })
   }
 
   return (
     <Navbar appearance='inverse' componentClass='header'>
+      <Navbar.Header style={{ padding: 12, paddingLeft: 20, fontSize: 20 }}>
+        <A href='/'>
+          <img src={logo} alt='' height={30} /> Covid-19 Cordinate
+        </A>
+      </Navbar.Header>
+
+      <Navbar.Body>
+        <Nav pullRight>
+          <Nav.Item componentClass={A} href='/volunteers'>Volunteers</Nav.Item>
+          {!!user && (<Nav.Item onClick={() => auth.signOut()}>Logout</Nav.Item>)}
+          {!user && (<Nav.Item onClick={() => setOpen(true)}>Login</Nav.Item>)}
+        </Nav>
+      </Navbar.Body>
+
       <Modal show={open} onHide={onCancel}>
         <Modal.Header>
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FormLogin onChange={setValues} values={values} errors={errors} setErrors={setErrors} />
-          <hr />
-          OR
-          <Button onClick={onGithubLogin}>Login with Github</Button>
+          <Divider>OR</Divider>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <ButtonLoginGithub onError={onGithubError} onComplete={() => setOpen(false)} />
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={onCancel} appearance='subtle'>
@@ -53,18 +67,6 @@ const Header = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-
-      <Navbar.Header style={{ padding: 12, paddingLeft: 20, fontSize: 20 }}>
-        <A href='/'>Covid-19 Cordinate</A>
-      </Navbar.Header>
-
-      <Navbar.Body>
-        <Nav pullRight>
-          <A href='/volunteers'><Nav.Item>Volunteers</Nav.Item></A>
-          {!!user && (<Nav.Item onClick={() => auth.signOut()}>Logout</Nav.Item>)}
-          {!user && (<Nav.Item onClick={() => setOpen(true)}>Login</Nav.Item>)}
-        </Nav>
-      </Navbar.Body>
     </Navbar>
   )
 }

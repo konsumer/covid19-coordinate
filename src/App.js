@@ -1,7 +1,9 @@
 import React from 'react'
 import { FirebaseAppProvider } from 'reactfire'
 import { useRoutes } from 'hookrouter'
+import { Content, Container } from 'rsuite'
 
+// TODO: pull this, from server?
 import firebaseConfig from '../firebase.json'
 import Header from './Header'
 import PageHome from './pages/PageHome'
@@ -17,8 +19,10 @@ export default () => {
   const page = useRoutes(routes) || <PageNotFound />
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <Header />
-      <main style={{ padding: 20 }}>{page}</main>
+      <Container>
+        <Header />
+        <Content>{page}</Content>
+      </Container>
     </FirebaseAppProvider>
   )
 }

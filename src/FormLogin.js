@@ -11,7 +11,9 @@ const model = Schema.Model({
 
 const FormLogin = ({ onChange, values, errors, setErrors }) => (
   <Form model={model} fluid onChange={onChange} formValue={values} onCheck={setErrors} formError={errors} checkTrigger='change'>
-    {!!errors.ALL && (<Message style={{ marginBottom: 10 }} title='Could Not Login' type='error' description={errors.ALL} />)}
+    {!!errors.ALL && (
+      <Message style={{ marginBottom: 10 }} title='Could Not Login' type='error' description={errors.ALL} />
+    )}
     <FormGroup className={errors.email ? 'has-error' : ''}>
       <ControlLabel>Email</ControlLabel>
       <FormControl name='email' type='email' required errorMessage={errors.email} />

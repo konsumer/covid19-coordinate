@@ -1,6 +1,6 @@
-# CORVID-19 Coordinate
+# Firebase Rsuite Starter
 
-This is a tool to help coordinate volunteers and information for people in need of it.
+This is a quick-start for firebase with rsuite.
 
 ## development
 
